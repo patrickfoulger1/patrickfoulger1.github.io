@@ -1,31 +1,46 @@
-const remainingTime = document.getElementById('remainingTime')
-const add30Sec = document.getElementById('add30Sec')
-const start = document.getElementById('start')
-add30Sec.addEventListener('click', () => {
-    let formattedRemainingTime = Number(remainingTime.textContent)
-    remainingTime.textContent = formattedRemainingTime += 30
-})
-let intervalID
-start.addEventListener('click', () => {
-    if (start.textContent === 'Pause') {
-        clearInterval(intervalID)
-    }
-    else {
-        startCount()
-    }
-})
-function startCount() {
-    let formattedRemainingTime = Number(remainingTime.textContent)
-    // if (formattedRemainingTime === 0) {
-    //     return
-    // }
-    intervalID = setInterval(() => {
-        remainingTime.textContent = formattedRemainingTime - 1
-    }, 1000)
-    start.textContent = 'Pause'
-}
+const remainingTime = document.getElementById("remainingTime");
+const add30Sec = document.getElementById("add30Sec");
+const startPause = document.getElementById("startPause");
+let timer = {
+  seconds: 0,
+  intervalId: undefined,
+};
 
-function stopCount(intervalID) {
-    clearInterval(intervalID)
-    start.textContent = 'Resume'
-}
+add30Sec.addEventListener("click", () => {
+  addToTimer(2);
+});
+
+startPause.addEventListener("click", () => {
+  if (
+    startPause.textContent === "Start" ||
+    startPause.textContent === "Resume"
+  ) {
+    startTimer();
+  } else if (startPause.textContent === "Pause") {
+    pauseTimer();
+  }
+});
+
+const addToTimer = (timeToAdd) => {
+  timer.seconds += timeToAdd;
+  remainingTime.textContent = timer.seconds;
+};
+
+const startTimer = () => {
+  addToTimer(-1);
+  timer.intervalId = setInterval(() => {
+    addToTimer(-1);
+
+    console.log(timer.seconds);
+    if (timer.seconds === 0) {
+      console.log("Timer complete");
+    }
+  }, 1000);
+
+  startPause.textContent = "Pause";
+};
+
+const pauseTimer = () => {
+  clearInterval(timer.intervalId);
+  startPause.textContent = "Resume";
+};
