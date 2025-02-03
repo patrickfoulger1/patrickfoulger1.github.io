@@ -6,7 +6,7 @@
 
 /* Task 3 Uncomment this code! */
 
-/* body {
+body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
   color: #333;
@@ -24,7 +24,7 @@ footer {
   background-color: #f4f4f4;
   padding: 1rem;
   margin-bottom: 1.5rem;
-} */
+}
 
 main {
   padding: 1rem;
@@ -37,6 +37,7 @@ main {
 }
 
 .timer-control-button {
+  border: black 1px solid;
   padding: 0.5rem 1rem;
   font-size: 1rem;
   background-color: #3498db;
