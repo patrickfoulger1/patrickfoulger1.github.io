@@ -33,20 +33,24 @@ main {
 #timer-controls {
   margin-bottom: 2rem;
   font-size: 1.2rem;
-  color: red;
+  color: rgba(0,0,0,0.6);
 }
 
 .timer-control-button {
-  border: black 1px solid;
+  border-radius: 20px;
+  border: none;
   padding: 0.5rem 1rem;
   font-size: 1rem;
   background-color: #3498db;
   color: #fff;
   cursor: pointer;
+  transition: all 0.5s;
+  width: 80px;
 }
 
 .timer-control-button:hover {
   background-color: #2980b9;
+  width: 150px;
 }
 
 #instructions {
@@ -60,4 +64,12 @@ main {
 .instructions-list {
   margin-top: 1rem;
   list-style-type: none;
+}
+
+footer {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  margin: unset;
 }
