@@ -48,16 +48,31 @@ main {
   transition: all 0.5s;
 }
 
-#add30Sec:hover {
+@media screen {
+  #add30Sec:hover {
+    background-color: #e7b416;
+  }
+
+  #startPause:hover {
+    background-color: #2dc937;
+    font-size: 1.5rem;
+  }
+
+  #reset:hover {
+    background-color: #cc3232;
+  }
+}
+
+#add30Sec:active {
   background-color: #e7b416;
 }
 
-#startPause:hover {
+#startPause:active {
   background-color: #2dc937;
   font-size: 1.5rem;
 }
 
-#reset:hover {
+#reset:active {
   background-color: #cc3232;
 }
 
